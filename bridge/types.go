@@ -28,14 +28,13 @@ type Config struct {
 }
 
 type Service struct {
-	ID    string
-	Name  string
-	Port  int
-	IP    string
-	Tags  []string
-	Attrs map[string]string
-	TTL   int
-
+	ID     string            `json:"id"`
+	Name   string            `json:"name"`
+	Port   int               `json:"port"`
+	IP     string            `json:"ip"`
+	Tags   []string          `json:"tags"`
+	Attrs  map[string]string `json:"attrs"`
+	TTL    int               `json:"ttl"`
 	Origin ServicePort
 }
 
@@ -53,4 +52,8 @@ type ServicePort struct {
 	ContainerHostname string
 	ContainerID       string
 	container         *dockerapi.Container
+}
+
+func (r ServicePort) GetContainer() *dockerapi.Container {
+	return r.container
 }
