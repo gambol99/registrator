@@ -35,7 +35,7 @@ type Service struct {
 	Tags   []string          `json:"tags"`
 	Attrs  map[string]string `json:"attrs"`
 	TTL    int               `json:"ttl"`
-	Origin ServicePort
+	Origin ServicePort		 `json:"origin"`
 }
 
 type DeadContainer struct {
