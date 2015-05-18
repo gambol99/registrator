@@ -73,6 +73,29 @@ Service definitions are stored as:
 
 	<registry-uri-path>/<service-name>/<service-id> = <ip>:<port>
 
+#### Etcd Extended
+	
+This a copy of etcd the only difference being the service document is stored aa a json document rather a simple IP:PORT value, allowing for attributes and tags for etcd service registrations.
+  	
+  	$ registrator etcdex:///path/to/services
+    $ registrator etcdex://192.168.1.100:4001/services 
+    
+Service definitions are stored as:
+
+	{
+    	"id"   : "d09f07ba6a8b1f0eba5e5975992bd5cc4eb82beff13da1dbd511376ed9f7c1cd",
+    	"name" : "something",
+    	"port" : 34002
+    	"ip"   : "172.17.42.12"
+    	"tags" : {
+    		"something": "something"
+    	},
+    	"attrs" : {
+    		"something": "something"
+    	},
+    	"ttl" : 20
+    }
+
 #### SkyDNS 2 backend
 
 SkyDNS 2 support uses an etcd key-value store, writing service definitions in a format compatible with SkyDNS 2. The URI provides an etcd host and a DNS domain name. If no host is provided, `127.0.0.1:4001` is used. The DNS domain name may not be omitted. Example URIs:
