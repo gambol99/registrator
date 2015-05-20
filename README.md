@@ -87,9 +87,7 @@ Service definitions are stored as:
     	"name" : "something",
     	"port" : 34002
     	"ip"   : "172.17.42.12"
-    	"tags" : {
-    		"something": "something"
-    	},
+    	"tags" : [ "something", "something" ],
     	"attrs" : {
     		"something": "something"
     	},
